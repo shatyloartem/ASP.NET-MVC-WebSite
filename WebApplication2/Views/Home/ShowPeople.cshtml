@@ -1,0 +1,16 @@
+@model System.Collections.Generic.List<string>
+
+@{
+    ViewBag.Title = "Show people";
+    Layout = "_Layout";
+}
+
+<h2>Show people</h2>
+@{
+    foreach (var person in Model)
+    {
+        <div>
+            <h3>Some person</h3>
+        </div>
+    }
+}
