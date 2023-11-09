@@ -16,3 +16,43 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.ShowPeopleTable {
+  margin-top: 30px;
+  margin-left: 20px;
+  padding: 7px 11px;
+  border-width: 3px; 
+  border-style: solid;
+  border-color: rgb(128, 128, 128);
+  border-radius: 3px;
+  background-color: whitesmoke;
+}
+
+.Line {
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 3px;
+}
+
+.PersonDiv {
+  margin: 3px;
+}
+
+.PersonName {
+  margin-left: 10%;
+  margin-top: 7px;
+  margin-bottom: 20px;
+}
+
+.PersonDescription {
+  margin: auto;
+  width: 80%;
+  border: #51585e 2px solid;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  padding: 6px 10px;
+}
+
+.DescriptionText {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}

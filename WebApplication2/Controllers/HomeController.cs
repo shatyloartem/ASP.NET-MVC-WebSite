@@ -6,14 +6,11 @@ namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        private List<string> _people; 
+        private readonly PeopleDataModel _peopleDataModel;
         
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
-            _people = new List<string>() { "Artem", "Viktoria", "Bebra" };
+            _peopleDataModel = new PeopleDataModel();
         }
 
         public IActionResult Index()
@@ -23,7 +20,7 @@ namespace WebApplication2.Controllers
 
         public ViewResult ShowPeople()
         {
-            return View(_people);
+            return View(_peopleDataModel.GetPeople());
         }
         
         public IActionResult Privacy()
@@ -31,6 +28,11 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+        public IActionResult OpenPersonPage(int personId)
+        {
+            return View(_peopleDataModel.GetExtendedPeople().ToArray()[personId]);
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

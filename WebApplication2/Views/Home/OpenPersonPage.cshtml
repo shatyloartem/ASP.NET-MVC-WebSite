@@ -1,0 +1,28 @@
+@model PersonExtended
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2 class="PersonName">
+    @Model.Name @Model.Surname
+</h2>
+
+<div class="PersonDescription">
+    <h4 class="DescriptionText">
+        @Model.UserDescription
+    </h4>
+    
+    <div class="Line"></div>
+    
+    <h4 class="DescriptionText">
+        Email: @Model.Email
+    </h4>
+    
+    <div class="Line"></div>
+    
+    <h5 class="DescriptionText">
+        Registration date: @Model.RegistrationTime
+    </h5>
+</div>
