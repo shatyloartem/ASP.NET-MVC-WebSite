@@ -13,24 +13,30 @@ namespace WebApplication2.Controllers
             _peopleDataModel = new PeopleDataModel();
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public ViewResult ShowPeople()
         {
             return View(_peopleDataModel.GetPeople());
         }
         
-        public IActionResult Privacy()
+        public IActionResult OpenPersonPage(int personId)
+        {
+            return View(_peopleDataModel.GetExtendedPeople().ToArray()[personId]);
+        }
+
+        public ViewResult AddPerson()
         {
             return View();
         }
 
-        public IActionResult OpenPersonPage(int personId)
+        [HttpPost]
+        public IActionResult CreateAccount(string name, string surname, string description, string email)
         {
-            return View(_peopleDataModel.GetExtendedPeople().ToArray()[personId]);
+            var user = new PersonExtended(_peopleDataModel.GetFreeId(), name, surname, email, DateTime.Now,
+                description);
+            
+            _peopleDataModel.AddUser(user);
+
+            return View(user);
         }
         
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

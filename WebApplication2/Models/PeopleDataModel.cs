@@ -6,9 +6,9 @@ namespace WebApplication2.Models
     {
         private readonly List<PersonExtended> _savedPeople = new List<PersonExtended>()
         {
-            new PersonExtended(0, "Artem", "Shatylo", "shatyloartem@gmail.com", 4031192023, "The best programmer existed. Modest."),
-            new PersonExtended(1, "Viktoria", "Korneva", "somemail@gmail.com", 4051192023, "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test "),
-            new PersonExtended(2, "Test", "Test", "test@gmail.com", 4051192023, "test test")
+            new PersonExtended(0, "Artem", "Shatylo", "shatyloartem@gmail.com", new DateTime(2023, 11, 9, 9, 54, 32), "The best programmer out there. Modest."),
+            new PersonExtended(1, "Viktoria", "Korneva", "somemail@gmail.com", new DateTime(2023, 11, 9, 9, 54, 32), "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test "),
+            new PersonExtended(2, "Test", "Test", "test@gmail.com", new DateTime(2023, 11, 9, 9, 54, 32), "test test")
         }; 
             
         
@@ -21,5 +21,12 @@ namespace WebApplication2.Models
         {
             return _savedPeople;
         }
+
+        public int GetFreeId()
+        {
+            return _savedPeople.Last().Id + 1;
+        }
+
+        public void AddUser(PersonExtended user) => _savedPeople.Add(user);
     }
 }

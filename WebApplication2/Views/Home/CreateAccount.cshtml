@@ -1,0 +1,14 @@
+@model PersonExtended
+
+@{
+    ViewBag.Title = "Added " + Model.Name;
+    Layout = "_Layout";
+}
+
+<h2>Added new account: @Model.Name @Model.Surname</h2>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ShowPeople">Show people</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddPerson">Add new account</a>
+</li>

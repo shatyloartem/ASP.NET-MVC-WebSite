@@ -6,12 +6,12 @@ public class PersonExtended : Person
 
     public string UserDescription;
     
-    public uint RegistrationTime;
+    public DateTime RegistrationDate;
     
-    public PersonExtended(int id, string name, string surname, string email, uint registrationTime, string userDescription) : base(id, name, surname)
+    public PersonExtended(int id, string name, string surname, string email, DateTime registrationTime, string userDescription) : base(id, name, surname)
     {
         Email = email;
-        RegistrationTime = registrationTime;
+        RegistrationDate = registrationTime;
         UserDescription = userDescription;
     }
 }

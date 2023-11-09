@@ -1,0 +1,16 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "Add account";
+    Layout = "_Layout";
+}
+
+<h2>Add account</h2>
+@using (Html.BeginForm("CreateAccount", "Home", FormMethod.Post))
+{
+    @Html.TextBox("Name")
+    @Html.TextBox("Surname")
+    @Html.TextBox("Description")
+    @Html.TextBox("Email")
+    <input type="submit" value="Submit" />
+}

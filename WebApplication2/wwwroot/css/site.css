@@ -18,14 +18,17 @@ body {
 }
 
 .ShowPeopleTable {
-  margin-top: 30px;
-  margin-left: 20px;
+  margin: 30px 10%;
   padding: 7px 11px;
   border-width: 3px; 
   border-style: solid;
   border-color: rgb(128, 128, 128);
   border-radius: 3px;
   background-color: whitesmoke;
+}
+
+.ShowPeopleTitle {
+  margin-left: 10%;
 }
 
 .Line {
