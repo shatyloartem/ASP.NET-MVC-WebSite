@@ -1,36 +1,52 @@
-using WebApplication2.Interfaces;
-
 namespace WebApplication2.Models
 {
-    public class PeopleDataModel : IGetPeople
+    public class PeopleDataModel
     {
-        private static readonly List<PersonExtended> SavedUsers = new List<PersonExtended>()
+        private static readonly List<User> SavedUsers = new List<User>()
         {
-            new PersonExtended(0, "Artem", "Shatylo", "shatyloartem@gmail.com", new DateTime(2023, 11, 9, 9, 54, 32), "The best programmer out there. Modest."),
-            new PersonExtended(1, "Viktoria", "Korneva", "somemail@gmail.com", new DateTime(2023, 11, 9, 9, 54, 32), "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test "),
-            new PersonExtended(2, "Test", "Test", "test@gmail.com", new DateTime(2023, 11, 9, 9, 54, 32), "test test")
-        }; 
-            
+            new User(0, "Name1", "Surname1", "test@gmail.com", "Test description", DateTime.Now),
+            new User(1, "Name2", "Surname2", "test@gmail.com", "Test description", DateTime.Now),
+            new User(2, "Name3", "Surname3", "test@gmail.com", "Test description", DateTime.Now)
+        };
         
-        public IEnumerable<Person> GetUsers(int startIndex = 0, int lastIndex = 50)
-        {
-            Console.WriteLine($"People count: {SavedUsers.Count}");
-            return SavedUsers;
-        }
-
-        public IEnumerable<PersonExtended> GetExtendedUsers(int startIndex = 0, int lastIndex = 50)
+        public IEnumerable<User> GetUsers()
         {
             return SavedUsers;
         }
 
+        public User GetUserById(int id)
+        {
+            foreach (var user in SavedUsers)
+            {
+                if (user.Id == id)
+                    return user;
+            }
+
+            return null;
+        }
+        
         public int GetFreeId()
         {
-            return SavedUsers.Last().Id + 1;
+            if(SavedUsers.Any())
+                return SavedUsers.Last().Id + 1;
+
+            return 0;
         }
 
-        public void AddUser(PersonExtended user)
+        public void AddUser(User user)
         {
             SavedUsers.Add(user);
+        }
+
+        public void RemoveUserById(int id)
+        {
+            var users = SavedUsers.ToList();
+
+            foreach (var user in users)
+            {
+                if (user.Id == id)
+                    SavedUsers.Remove(user);
+            }
         }
     }
 }

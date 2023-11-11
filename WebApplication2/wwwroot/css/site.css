@@ -59,3 +59,11 @@ body {
   margin-top: 8px;
   margin-bottom: 8px;
 }
+
+.AddUserForm {
+  background-color: whitesmoke;
+  border: #51585e 2px solid;
+  border-radius: 3px;
+  padding: 6px 10px;
+  margin-right: 80%;
+}

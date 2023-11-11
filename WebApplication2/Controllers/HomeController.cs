@@ -13,14 +13,14 @@ namespace WebApplication2.Controllers
             _usersDataModel = new PeopleDataModel();
         }
 
-        public ViewResult ShowUsers()
+        public ViewResult UsersList()
         {
             return View(_usersDataModel.GetUsers());
         }
         
-        public IActionResult OpenUserPage(int personId)
+        public IActionResult UserPage(int personId)
         {
-            return View(_usersDataModel.GetExtendedUsers().ToArray()[personId]);
+            return View(_usersDataModel.GetUserById(personId));
         }
 
         public ViewResult AddUser()
@@ -29,14 +29,21 @@ namespace WebApplication2.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateUser(string name, string surname, string description, string email)
+        public IActionResult OnUserCreated(string name, string surname, string description, string email)
         {
-            var user = new PersonExtended(_usersDataModel.GetFreeId(), name, surname, email, DateTime.Now,
-                description);
+            var user = new User(_usersDataModel.GetFreeId(), name, surname, email, description, DateTime.Now);
             
             _usersDataModel.AddUser(user);
 
-            return View(user);
+            return UserPage(user.Id);
+        }
+
+        [HttpPost]
+        public IActionResult RemoveUser()
+        {
+            _usersDataModel.RemoveUserById(Int32.Parse(Request.Form["Action:Delete"]));
+            
+            return View();
         }
         
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

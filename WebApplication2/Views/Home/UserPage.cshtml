@@ -1,4 +1,4 @@
-@model PersonExtended
+@model User
 
 @{
     ViewBag.Title = $"{Model.Name} {Model.Surname}";
@@ -25,4 +25,11 @@
     <h5 class="DescriptionText">
         Registration date: @Model.RegistrationDate
     </h5>
+    
+    @using (Html.BeginForm("RemoveUser", "Home", FormMethod.Post))
+    {
+        <input type="hidden" value="@Model.Id" name="Action:Delete"/>
+        <button type="submit">Remove user</button>
+    }
+
 </div>

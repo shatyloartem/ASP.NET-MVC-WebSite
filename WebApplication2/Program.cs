@@ -1,3 +1,5 @@
+using WebApplication2.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +24,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=ShowUsers}/{id?}");
+    pattern: "{controller=Home}/{action=UsersList}/{id?}");
 
 app.Run();
