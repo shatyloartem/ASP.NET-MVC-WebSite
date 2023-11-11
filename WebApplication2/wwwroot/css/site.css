@@ -17,7 +17,7 @@ body {
   margin-bottom: 60px;
 }
 
-.ShowPeopleTable {
+.ShowUsersTable {
   margin: 30px 10%;
   padding: 7px 11px;
   border-width: 3px; 
@@ -27,7 +27,7 @@ body {
   background-color: whitesmoke;
 }
 
-.ShowPeopleTitle {
+.ShowUsersTitle {
   margin-left: 10%;
 }
 
@@ -36,17 +36,17 @@ body {
   border-radius: 3px;
 }
 
-.PersonDiv {
+.UserDiv {
   margin: 3px;
 }
 
-.PersonName {
+.UserName {
   margin-left: 10%;
   margin-top: 7px;
   margin-bottom: 20px;
 }
 
-.PersonDescription {
+.UserDescription {
   margin: auto;
   width: 80%;
   border: #51585e 2px solid;

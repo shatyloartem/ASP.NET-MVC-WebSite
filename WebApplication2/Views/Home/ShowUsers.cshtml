@@ -1,0 +1,23 @@
+@model IEnumerable<Person>
+
+@{
+    ViewBag.Title = "Show people";
+    Layout = "_Layout";
+}
+
+<h2 class="ShowUsersTitle">Show users</h2>
+<div class="ShowUsersTable">
+    @{
+        foreach (var user in Model)
+        {
+            <div class="UserDiv">
+                @{
+                    var title = $"{user.Name} {user.Surname}";
+                }
+                <h3><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="OpenUserPage" asp-route-personId="@user.Id">@title</a></h3>
+            </div>
+            <div class="Line"></div>
+        }
+    }    
+</div>
+

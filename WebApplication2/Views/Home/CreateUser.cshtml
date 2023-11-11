@@ -1,0 +1,10 @@
+@model PersonExtended
+
+@{
+    ViewBag.Title = "Added " + Model.Name;
+    Layout = "_Layout";
+}
+
+<h2>New account added: @Model.Name @Model.Surname</h2>
+<br>
+<h5>You can now return to users list, or add new account</h5>

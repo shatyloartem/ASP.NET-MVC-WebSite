@@ -6,35 +6,35 @@ namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly PeopleDataModel _peopleDataModel;
+        private readonly PeopleDataModel _usersDataModel;
         
         public HomeController(ILogger<HomeController> logger)
         {
-            _peopleDataModel = new PeopleDataModel();
+            _usersDataModel = new PeopleDataModel();
         }
 
-        public ViewResult ShowPeople()
+        public ViewResult ShowUsers()
         {
-            return View(_peopleDataModel.GetPeople());
+            return View(_usersDataModel.GetUsers());
         }
         
-        public IActionResult OpenPersonPage(int personId)
+        public IActionResult OpenUserPage(int personId)
         {
-            return View(_peopleDataModel.GetExtendedPeople().ToArray()[personId]);
+            return View(_usersDataModel.GetExtendedUsers().ToArray()[personId]);
         }
 
-        public ViewResult AddPerson()
+        public ViewResult AddUser()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateAccount(string name, string surname, string description, string email)
+        public IActionResult CreateUser(string name, string surname, string description, string email)
         {
-            var user = new PersonExtended(_peopleDataModel.GetFreeId(), name, surname, email, DateTime.Now,
+            var user = new PersonExtended(_usersDataModel.GetFreeId(), name, surname, email, DateTime.Now,
                 description);
             
-            _peopleDataModel.AddUser(user);
+            _usersDataModel.AddUser(user);
 
             return View(user);
         }
